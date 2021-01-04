@@ -166,7 +166,7 @@ def is_in_manifest(projectpath):
 
     # ... and don't forget the lineage snippet
     try:
-        lm = ElementTree.parse(".repo/manifests/snippets/lineage.xml")
+        lm = ElementTree.parse(".repo/manifests/snippets/aurora.xml")
         lm = lm.getroot()
     except:
         lm = ElementTree.Element("manifest")
@@ -216,7 +216,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 
 def fetch_dependencies(repo_path, fallback_branch = None):
     print('Looking for dependencies in %s' % repo_path)
-    dependencies_path = repo_path + '/lineage.dependencies'
+    dependencies_path = repo_path + '/aurora.dependencies'
     syncable_repos = []
     verify_repos = []
 

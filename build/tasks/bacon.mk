@@ -16,12 +16,12 @@
 # -----------------------------------------------------------------
 # Lineage OTA update package
 
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/lineage-$(LINEAGE_VERSION).zip
+AURORA_TARGET_PACKAGE := $(PRODUCT_OUT)/lineage-$(AURORA_VERSION).zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
-	$(hide) $(MD5) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).md5sum
-	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(AURORA_TARGET_PACKAGE)
+	$(hide) $(MD5) $(AURORA_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(AURORA_TARGET_PACKAGE).md5sum
+	@echo "Package Complete: $(AURORA_TARGET_PACKAGE)" >&2

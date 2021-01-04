@@ -18,12 +18,12 @@
 # Makefile for producing lineage sdk coverage reports.
 # Run "make lineage-sdk-test-coverage" in the $ANDROID_BUILD_TOP directory.
 
-lineage_sdk_api_coverage_exe := $(HOST_OUT_EXECUTABLES)/lineage-sdk-api-coverage
+aurora_sdk_api_coverage_exe := $(HOST_OUT_EXECUTABLES)/lineage-sdk-api-coverage
 dexdeps_exe := $(HOST_OUT_EXECUTABLES)/dexdeps
 
 coverage_out := $(HOST_OUT)/lineage-sdk-api-coverage
 
-api_text_description := lineage-sdk/api/lineage_current.txt
+api_text_description := lineage-sdk/api/aurora_current.txt
 api_xml_description := $(coverage_out)/api.xml
 $(api_xml_description) : $(api_text_description) $(APICHECK)
 	$(hide) echo "Converting API file to XML: $@"
@@ -32,15 +32,15 @@ $(api_xml_description) : $(api_text_description) $(APICHECK)
 
 lineage-sdk-test-coverage-report := $(coverage_out)/lineage-sdk-test-coverage.html
 
-lineage_sdk_tests_apk := $(call intermediates-dir-for,APPS,LineagePlatformTests)/package.apk
+aurora_sdk_tests_apk := $(call intermediates-dir-for,APPS,LineagePlatformTests)/package.apk
 lineagesettingsprovider_tests_apk := $(call intermediates-dir-for,APPS,LineageSettingsProviderTests)/package.apk
-lineage_sdk_api_coverage_dependencies := $(lineage_sdk_api_coverage_exe) $(dexdeps_exe) $(api_xml_description)
+aurora_sdk_api_coverage_dependencies := $(aurora_sdk_api_coverage_exe) $(dexdeps_exe) $(api_xml_description)
 
-$(lineage-sdk-test-coverage-report): PRIVATE_TEST_CASES := $(lineage_sdk_tests_apk) $(lineagesettingsprovider_tests_apk)
-$(lineage-sdk-test-coverage-report): PRIVATE_LINEAGE_SDK_API_COVERAGE_EXE := $(lineage_sdk_api_coverage_exe)
+$(lineage-sdk-test-coverage-report): PRIVATE_TEST_CASES := $(aurora_sdk_tests_apk) $(lineagesettingsprovider_tests_apk)
+$(lineage-sdk-test-coverage-report): PRIVATE_AURORA_SDK_API_COVERAGE_EXE := $(aurora_sdk_api_coverage_exe)
 $(lineage-sdk-test-coverage-report): PRIVATE_DEXDEPS_EXE := $(dexdeps_exe)
 $(lineage-sdk-test-coverage-report): PRIVATE_API_XML_DESC := $(api_xml_description)
-$(lineage-sdk-test-coverage-report): $(lineage_sdk_tests_apk) $(lineagesettingsprovider_tests_apk) $(lineage_sdk_api_coverage_dependencies) | $(ACP)
+$(lineage-sdk-test-coverage-report): $(aurora_sdk_tests_apk) $(lineagesettingsprovider_tests_apk) $(aurora_sdk_api_coverage_dependencies) | $(ACP)
 	$(call generate-lineage-coverage-report,"LINEAGE-SDK API Coverage Report",\
 			$(PRIVATE_TEST_CASES),html)
 
@@ -58,12 +58,12 @@ endif
 #  3 - Format of the report
 define generate-lineage-coverage-report
 	$(hide) mkdir -p $(dir $@)
-	$(hide) $(PRIVATE_LINEAGE_SDK_API_COVERAGE_EXE) -d $(PRIVATE_DEXDEPS_EXE) -a $(PRIVATE_API_XML_DESC) -f $(3) -o $@ $(2) -cm
+	$(hide) $(PRIVATE_AURORA_SDK_API_COVERAGE_EXE) -d $(PRIVATE_DEXDEPS_EXE) -a $(PRIVATE_API_XML_DESC) -f $(3) -o $@ $(2) -cm
 	@ echo $(1): file://$@
 endef
 
 # Reset temp vars
-lineage_sdk_api_coverage_dependencies :=
+aurora_sdk_api_coverage_dependencies :=
 lineage-sdk-combined-coverage-report :=
 lineage-sdk-combined-xml-coverage-report :=
 lineage-sdk-verifier-coverage-report :=
@@ -72,6 +72,6 @@ api_xml_description :=
 api_text_description :=
 coverage_out :=
 dexdeps_exe :=
-lineage_sdk_api_coverage_exe :=
-lineage_sdk_verifier_apk :=
-android_lineage_sdk_zip :=
+aurora_sdk_api_coverage_exe :=
+aurora_sdk_verifier_apk :=
+android_aurora_sdk_zip :=

@@ -29,7 +29,7 @@ import (
 )
 
 func init() {
-	android.RegisterModuleType("lineage_generator", GeneratorFactory)
+	android.RegisterModuleType("aurora_generator", GeneratorFactory)
 
 	pctx.HostBinToolVariable("sboxCmd", "sbox")
 }

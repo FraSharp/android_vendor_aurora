@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_arm.mk \
-    $(LOCAL_DIR)/lineage_arm64.mk \
-    $(LOCAL_DIR)/lineage_x86.mk \
-    $(LOCAL_DIR)/lineage_x86_64.mk
+    $(LOCAL_DIR)/aurora_arm.mk \
+    $(LOCAL_DIR)/aurora_arm64.mk \
+    $(LOCAL_DIR)/aurora_x86.mk \
+    $(LOCAL_DIR)/aurora_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_arm-userdebug \
-    lineage_arm64-userdebug \
-    lineage_x86-userdebug \
-    lineage_x86_64-userdebug
+    aurora_arm-userdebug \
+    aurora_arm64-userdebug \
+    aurora_x86-userdebug \
+    aurora_x86_64-userdebug

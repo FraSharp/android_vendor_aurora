@@ -14,8 +14,8 @@
 
 $(call inherit-product, build/target/product/aosp_arm64.mk)
 
-include vendor/lineage/build/target/product/lineage_generic_target.mk
+include vendor/aurora/build/target/product/aurora_generic_target.mk
 
 TARGET_NO_KERNEL_OVERRIDE := true
 
-PRODUCT_NAME := lineage_arm64
+PRODUCT_NAME := aurora_arm64
