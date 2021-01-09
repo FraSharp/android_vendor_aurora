@@ -74,11 +74,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 include vendor/aurora/config/aosp_audio.mk
 
 # Include Lineage audio files
-include vendor/aurora/config/aurora_audio.mk
+include vendor/aurora/config/lineage_audio.mk
 
 ifneq ($(TARGET_DISABLE_AURORA_SDK), true)
 # Lineage SDK
-include vendor/aurora/config/aurora_sdk_common.mk
+include vendor/aurora/config/lineage_sdk_common.mk
 endif
 
 # TWRP
